@@ -36,10 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+           'name'=>'required'
+        ]);
         Category::create([
             'name'=>$request->post('name')
         ]);
-        return redirect()->back()->with('message','Category created');
+        return redirect('category')->with('message','Category created');
     }
 
     /**
@@ -59,9 +62,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        return "edit";
+        $category=Category::find($id);
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -71,9 +75,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        return "update";
+        $category=Category::find($id);
+        $category->name=$request->get('name');
+        $category->save();
+        return redirect('category')->with('message','Category updated');
+        
     }
 
     /**
@@ -82,8 +90,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        return "destroy";
+        $category=Category::find($id);
+        $category->delete();
+        return redirect('category')->with('message','Category deleted');
     }
 }

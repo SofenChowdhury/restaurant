@@ -4,7 +4,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(Session::has('message'))
+                    <div class="alert alert-success">
+                        {{Session::get('message')}}
+                    </div>
+                @endif
                 <div class="card">
+                    <a href="">
+                        <form action="{{route('category.create')}}">
+                            <button class="btn btn-outline-success">
+                                Create Category
+                            </button>
+                        </form>
+                    </a>
                     <div class="card-header">{{ __('All Categories') }}</div>
 
                     <div class="card-body">
@@ -32,15 +44,28 @@
                                             </td>
                                             <td>
                                                 <a href="">
-                                                    <button class="btn btn-outline-danger">
-                                                        Delete
-                                                    </button>
+                                                    <form action="{{route('category.destroy',[$category->id])}}" method="post">@csrf
+                                                        {{method_field('DELETE')}}
+                                                        <button class="btn btn-outline-danger">
+                                                            Delete
+                                                        </button>
+                                                    </form>
                                                 </a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
                                     <td>No Category to display</td>
+                                    <td>
+                                        <a href="">
+{{--                                            <a href="{{route('category.create')}}">Create Category</a>--}}
+                                            <form action="{{route('category.create')}}">
+                                                <button class="btn btn-outline-success">
+                                                    Create Category
+                                                </button>
+                                            </form>
+                                        </a>
+                                    </td>
                                 @endif
                             </tbody>
                         </table>

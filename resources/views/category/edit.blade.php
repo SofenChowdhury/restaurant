@@ -4,25 +4,25 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                @if(Session::has('message'))
-                    <div class="alert alert-success">
-                        {{Session::get('message')}}
-                    </div>
-                @endif
-                <form action="{{route('category.store')}}" method="post">@csrf
+{{--                @if(Session::has('message'))--}}
+{{--                    <div class="alert alert-success">--}}
+{{--                        {{Session::get('message')}}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+                <form action="{{route('category.update',[$category->id])}}" method="post">@csrf
+                    {{method_field('PUT')}}
                     <div class="card">
-                        <div class="card-header">{{ __('Manage Food Category') }}</div>
+                        <div class="card-header">{{ __('Edit Food Category') }}</div>
 
                         <div class="card-body">
                             {{--                        Category--}}
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="name"  class="form-control">
-
+                                <input type="text" name="name" class="form-control" value="{{$category->name}}">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-outline-primary">
-                                    Submit
+                                    Update
                                 </button>
                             </div>
                         </div>
