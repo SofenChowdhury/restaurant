@@ -53,7 +53,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return "show";
+//        $categories=Category::latest()->get();
+//        return view('category.index',compact('categories'));
     }
 
     /**
@@ -77,6 +78,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
         $category=Category::find($id);
         $category->name=$request->get('name');
         $category->save();

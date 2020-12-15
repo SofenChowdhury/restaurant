@@ -9,6 +9,13 @@
                         {{Session::get('message')}}
                     </div>
                 @endif
+                <div>
+                    <a href="http://127.0.0.1:8000/category">
+                        <button class="btn btn-outline-success">
+                            Show Category
+                        </button>
+                    </a>
+                </div>
                 <form action="{{route('category.store')}}" method="post">@csrf
                     <div class="card">
                         <div class="card-header">{{ __('Manage Food Category') }}</div>
@@ -17,8 +24,12 @@
                             {{--                        Category--}}
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="name"  class="form-control">
-
+                                <input type="text" name="name"  class="form-control @error('name') is-invalid @enderror">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-outline-primary">

@@ -58,7 +58,6 @@
                                     <td>No Category to display</td>
                                     <td>
                                         <a href="">
-{{--                                            <a href="{{route('category.create')}}">Create Category</a>--}}
                                             <form action="{{route('category.create')}}">
                                                 <button class="btn btn-outline-success">
                                                     Create Category
