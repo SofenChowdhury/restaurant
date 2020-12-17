@@ -16,7 +16,7 @@
                         </button>
                     </a>
                 </div>
-                <form action="{{route('food.store')}}" method="post">@csrf
+                <form action="{{route('food.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card">
                         <div class="card-header">{{ __('Add New Food') }}</div>
 
