@@ -74,9 +74,10 @@ class FoodController extends Controller
      * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function edit(Food $food)
+    public function edit($id)
     {
-        return "edit";
+        $food = Food::find($id);
+        return view('food.edit',compact('food'));
     }
 
     /**
