@@ -42,7 +42,7 @@ class CategoryController extends Controller
         Category::create([
             'name'=>$request->post('name')
         ]);
-        return redirect('category')->with('message','Category created');
+        return redirect()->back()->with('message','Category created');
     }
 
     /**
