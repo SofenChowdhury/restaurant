@@ -45,7 +45,7 @@ class FoodController extends Controller
         ]);
         $image = $request->file('image');
         $name = time().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('images');
+        $destinationPath = public_path('/images');
         $image->move($destinationPath,$name);
         Food::create([
             'name'=>$request->post('name'),
@@ -87,9 +87,31 @@ class FoodController extends Controller
      * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Food $food)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required|integer',
+            'category'=>'required',
+            'image'=>':jpg,jpeg,png'
+        ]);
+        $food = Food::find($id);
+        $name = $food->image;
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath,$name);
+            $food->image = $name;
+        }
+        $food->name = $request->get('name');
+        $food->description = $request->get('description');
+        $food->price = $request->get('price');
+        $food->category_id = $request->get('category');
+        $food->image = $name;
+        $food->save();
+        return redirect()->route('food.index')->with('message','Food updated');
     }
 
     /**
@@ -98,8 +120,10 @@ class FoodController extends Controller
      * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Food $food)
+    public function destroy($id)
     {
-        //
+        $food=Food::find($id);
+        $food->delete();
+        return redirect('food')->with('message','Food deleted');
     }
 }
