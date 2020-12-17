@@ -16,7 +16,7 @@
                         </button>
                     </a>
                 </div>
-                <form action="{{route('food.update',[$food->id])}}" method="post">@csrf
+                <form action="{{route('food.update',[$food->id])}}" method="post" enctype="multipart/form-data">@csrf
                     {{method_field('PUT')}}
                     <div class="card">
                         <div class="card-header">{{ __('Edit Food Details') }}</div>
