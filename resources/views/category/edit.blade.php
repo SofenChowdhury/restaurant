@@ -9,13 +9,13 @@
                         {{Session::get('message')}}
                     </div>
                 @endif
-                <div>
-                    <a href="{{route('category.index')}}">
-                        <button class="btn btn-outline-secondary">
-                            Show Category
-                        </button>
-                    </a>
-                </div>
+{{--                <div>--}}
+{{--                    <a href="{{route('category.index')}}">--}}
+{{--                        <button class="btn btn-outline-secondary">--}}
+{{--                            Show Category--}}
+{{--                        </button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <form action="{{route('category.update',[$category->id])}}" method="post">@csrf
                     {{method_field('PUT')}}
                     <div class="card">

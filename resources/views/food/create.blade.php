@@ -9,13 +9,13 @@
                         {{Session::get('message')}}
                     </div>
                 @endif
-                <div>
-                    <a href="{{route('food.index')}}">
-                        <button class="btn btn-outline-secondary">
-                            Show Food
-                        </button>
-                    </a>
-                </div>
+{{--                <div>--}}
+{{--                    <a href="{{route('food.index')}}">--}}
+{{--                        <button class="btn btn-outline-secondary">--}}
+{{--                            Show Food--}}
+{{--                        </button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <form action="{{route('food.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card">
                         <div class="card-header">
