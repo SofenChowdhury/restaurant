@@ -10,15 +10,17 @@
                     </div>
                 @endif
                 <div>
-                    <a href="http://127.0.0.1:8000/food">
-                        <button class="btn btn-outline-success">
+                    <a href="{{route('food.index')}}">
+                        <button class="btn btn-outline-secondary">
                             Show Food
                         </button>
                     </a>
                 </div>
                 <form action="{{route('food.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card">
-                        <div class="card-header">{{ __('Add New Food') }}</div>
+                        <div class="card-header">
+                            {{ __('Add New Food') }}
+                        </div>
 
                         <div class="card-body">
                             {{--                        Food--}}

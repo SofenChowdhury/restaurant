@@ -10,15 +10,16 @@
                     </div>
                 @endif
                 <div class="card">
-                    <a href="">
-                        <form action="{{route('category.create')}}">
-                            <button class="btn btn-outline-success">
-                                Create Category
-                            </button>
-                        </form>
-                    </a>
-                    <div class="card-header">{{ __('All Categories') }}</div>
-
+                    <div class="card-header">
+                        {{ __('All Categories') }}
+                        <span class="float-right">
+                            <a href="{{route('category.create')}}">
+                                <button class="btn btn-outline-secondary">
+                                    Add food
+                                </button>
+                            </a>
+                        </span>
+                    </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>

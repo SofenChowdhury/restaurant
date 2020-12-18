@@ -4,14 +4,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                {{--                @if(Session::has('message'))--}}
-                {{--                    <div class="alert alert-success">--}}
-                {{--                        {{Session::get('message')}}--}}
-                {{--                    </div>--}}
-                {{--                @endif--}}
+                @if(Session::has('message'))
+                    <div class="alert alert-success">
+                        {{Session::get('message')}}
+                    </div>
+                @endif
                 <div>
-                    <a href="http://127.0.0.1:8000/food">
-                        <button class="btn btn-outline-success">
+                    <a href="{{route('food.index')}}">
+                        <button class="btn btn-outline-secondary">
                             Show Food
                         </button>
                     </a>
@@ -19,7 +19,9 @@
                 <form action="{{route('food.update',[$food->id])}}" method="post" enctype="multipart/form-data">@csrf
                     {{method_field('PUT')}}
                     <div class="card">
-                        <div class="card-header">{{ __('Edit Food Details') }}</div>
+                        <div class="card-header">
+                            {{ __('Edit Food Details') }}
+                        </div>
 
                         <div class="card-body">
                             {{--                        Food--}}

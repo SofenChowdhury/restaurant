@@ -10,8 +10,8 @@
                     </div>
                 @endif
                 <div>
-                    <a href="http://127.0.0.1:8000/category">
-                        <button class="btn btn-outline-success">
+                    <a href="{{route('category.index')}}">
+                        <button class="btn btn-outline-secondary">
                             Show Category
                         </button>
                     </a>
