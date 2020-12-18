@@ -15,7 +15,7 @@
                         <span class="float-right">
                             <a href="{{route('category.create')}}">
                                 <button class="btn btn-outline-secondary">
-                                    Add food
+                                    Add Category
                                 </button>
                             </a>
                         </span>
