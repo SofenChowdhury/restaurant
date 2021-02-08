@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2021 at 01:40 PM
+-- Generation Time: Feb 08, 2021 at 10:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -146,7 +146,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'rms', 'rms@gmail.com', NULL, '$2y$10$kOCrx6qWH1MUBp83cDUyT.C/8fTK3xQrBxnSCT.z1uzFyYZIFTYKe', 'VIv6MqbOOcRrc3Fmd42fNUrzI3yvAFKi5aNQGf0EsMEMjU20oUdtsYnfFI1d', '2020-12-17 05:48:25', '2020-12-17 05:48:25');
+(1, 'rms', 'rms@gmail.com', NULL, '$2y$10$kOCrx6qWH1MUBp83cDUyT.C/8fTK3xQrBxnSCT.z1uzFyYZIFTYKe', 'XEjG1FLBgzlDV7O1dOlrdF6WFFyfNdeDOeNOOohPtTjjBdMExac4tIObisYl', '2020-12-17 05:48:25', '2020-12-17 05:48:25');
 
 --
 -- Indexes for dumped tables
